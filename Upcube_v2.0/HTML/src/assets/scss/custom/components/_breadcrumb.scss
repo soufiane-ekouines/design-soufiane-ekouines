@@ -1,0 +1,34 @@
+
+// 
+// breadcrumb.scss
+//
+
+
+// Breadcrumb item arrow
+.breadcrumb-item {
+    > a {
+        color: $gray-700;
+    }
+    +.breadcrumb-item {
+        &::before {
+            font-family: "Material Design Icons";
+        }
+    }
+}
+
+// RTL
+
+[dir="rtl"] {
+    .breadcrumb-item {
+        +.breadcrumb-item {
+            padding-right: $breadcrumb-item-padding;
+
+            &::before {
+            font-family: "Material Design Icons";
+            padding-left: 0;
+                content: "\F0141";
+            }
+        }
+    }
+
+}

@@ -1,0 +1,247 @@
+//
+// datatable.scss
+
+
+.dataTables_wrapper {
+  &.container-fluid {
+    padding: 0;
+  }
+}
+
+div.dataTables_wrapper {
+  div.dataTables_filter {
+    text-align: right;
+
+    @media (max-width: 767px) {
+      text-align: center;
+    }
+
+
+    input {
+      margin-left: 0.5em;
+      margin-right: 0;
+    }
+  }
+}
+
+.datatable {
+  td {
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+div.table-responsive>div.dataTables_wrapper>div.row>div[class^="col-"] {
+  &:first-child {
+    padding-left: 0;
+  }
+
+  &:last-child {
+    padding-right: 0;
+  }
+}
+
+
+table.dataTable {
+  border-collapse: collapse !important;
+  margin-bottom: 15px !important;
+
+  // Change icons view
+  thead {
+
+    .sorting,
+    .sorting_asc,
+    .sorting_desc,
+    .sorting_asc_disabled,
+    .sorting_desc_disabled {
+      &:before {
+        left: auto;
+        right: 0.5rem;
+        content: "\F0360";
+        font-family: "Material Design Icons";
+        font-size: 1rem;
+        top: 9px;
+
+
+      }
+
+      &:after {
+        left: auto;
+        right: 0.5em;
+        content: "\F035D";
+        font-family: "Material Design Icons";
+        top: 15px;
+        font-size: 1rem;
+      }
+    }
+
+    tr {
+
+      th,
+      td {
+
+        &.sorting_asc,
+        &.sorting_desc,
+        &.sorting {
+          padding-left: 12px;
+          padding-right: 30px;
+        }
+      }
+    }
+  }
+
+  tbody {
+    // Multi select table
+
+    > tr.selected, >tr>.selected {
+        background-color: rgba($primary,.2);
+        
+        td {
+            border-color: rgba($primary,.2);
+            color: $primary;
+        }
+    }
+    td {
+        &:focus {
+            outline: none !important;
+        }
+    }
+    // Key Tables
+    th.focus,td.focus{
+        outline: 2px solid $primary !important;
+        outline-offset: -1px;
+        background-color: rgba($primary, 0.15);
+    }
+}
+}
+
+.dataTables_info {
+  font-weight: $font-weight-semibold;
+}
+
+
+// Responsive data table
+table.dataTable.dtr-inline.collapsed {
+  >tbody {
+    >tr[role=row] {
+
+      >td,
+      >th {
+        &:first-child {
+          &:before {
+            box-shadow: $box-shadow-lg;
+            background-color: $success;
+            bottom: auto;
+          }
+        }
+      }
+    }
+
+    >tr.parent {
+
+      >td,
+      >th {
+        &:first-child {
+          &:before {
+            background-color: $danger;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// Data Table copy button
+div.dt-button-info {
+  background-color: $primary;
+  border: none;
+  color: $white;
+  box-shadow: none;
+  border-radius: 3px;
+  text-align: center;
+  z-index: 21;
+
+  h2 {
+    border-bottom: none;
+    background-color: rgba($white, 0.2);
+    color: $white;
+  }
+}
+
+@include media-breakpoint-down(md) {
+
+  li.paginate_button.previous,
+  li.paginate_button.next {
+    display: inline-block;
+    font-size: 1.5rem;
+  }
+
+  li.paginate_button {
+    display: none;
+  }
+
+  .dataTables_paginate {
+    ul {
+      text-align: center;
+      display: block;
+      margin: $spacer 0 0 !important;
+    }
+  }
+
+  div.dt-buttons {
+    display: inline-table;
+    margin-bottom: $spacer;
+  }
+}
+
+// Active status
+.activate-select {
+  .sorting_1 {
+    background-color: $gray-100;
+  }
+}
+
+
+
+// datatable
+
+
+.table-bordered {
+  border: $table-border-width solid $table-border-color;
+}
+
+
+
+.table,
+table {
+  &.dataTable {
+    &.dtr-inline.collapsed>tbody>tr>td {
+      position: relative;
+
+      &.dtr-control {
+        padding-left: 30px;
+
+        &:before {
+          top: 64%;
+          left: 5px;
+          height: 14px;
+          width: 14px;
+          margin-top: -14px;
+          display: block;
+          position: absolute;
+          color: $white;
+          border: 2px solid $white;
+          border-radius: 14px;
+          box-sizing: content-box;
+          text-align: center;
+          text-indent: 0 !important;
+          line-height: 12px;
+          content: '+';
+          background-color: $primary;
+        }
+      }
+    }
+  }
+}
